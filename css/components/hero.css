@@ -92,7 +92,7 @@
   overflow: hidden;
   white-space: nowrap;
   padding-inline-end: 0.34em;
-  padding-block: 0.1em 0.06em;
+  padding-block: 0.2em 0.12em;
 }
 
 .hero-title__line:first-child {
@@ -324,7 +324,7 @@
 .hero-scroll__label {
   font-size: var(--text-xs);
   letter-spacing: 0.2em;
-  color: var(--color-text-muted);
+  color: var(--color-bg-light);
 }
 
 @media (min-width: 768px) {
@@ -519,4 +519,14 @@
     object-position: center bottom;
     transform: none;
   }
+}
+
+/* ── Nota de atendimento sob os CTAs do hero ── */
+.hero-ctas__nota {
+  margin: 0.85rem 0 0;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-bg-light);
 }

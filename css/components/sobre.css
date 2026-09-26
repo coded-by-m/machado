@@ -353,11 +353,9 @@
   position: absolute;
   width: 96px;
   height: 96px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.07);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 0;
+  background: var(--color-primary);
+  border: 0;
   transition:
     transform 0.45s var(--ease-machado),
     background 0.45s ease,
@@ -369,8 +367,8 @@
   position: absolute;
   width: 96px;
   height: 96px;
-  border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0;
+  border: 1px solid rgba(255, 255, 255, 0.22);
   animation: yt-pulse 2.8s ease-in-out infinite;
 }
 
@@ -386,7 +384,7 @@
   .sobre-yt:hover .sobre-yt__play::before {
     transform: scale(1.14);
     background: rgba(26, 75, 130, 0.7);
-    border-color: rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.66);
   }
 }
 
@@ -554,7 +552,7 @@
 .sobre--light .sobre-kpi__val { color: var(--color-navy-dark); font-weight: 500; }
 .sobre--light .sobre-kpi--hero .sobre-kpi__val { color: var(--color-primary); font-weight: 400; }
 .sobre--light .sobre-kpi__key,
-.sobre--light .sobre-kpi__unit { color: rgba(28, 36, 48, 0.55); }
+.sobre--light .sobre-kpi__unit { color: rgba(28, 36, 48, 0.72); }
 
 @media (hover: hover) {
   .sobre--light .sobre-kpi:not(.sobre-kpi--hero):hover { background: rgba(28, 36, 48, 0.03); }
@@ -569,4 +567,40 @@
 .sobre--light .sobre-yt {
   border: 1px solid rgba(28, 36, 48, 0.18);
   box-shadow: 0 18px 44px rgba(28, 36, 48, 0.14);
+}
+
+/* ── Vídeo institucional: legenda e estado de carregamento ── */
+.sobre-yt__caption {
+  margin: 0.85rem 0 0;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-bg-light);
+}
+
+.sobre-yt__loading {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 1.25rem;
+  z-index: 2;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-white);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  pointer-events: none;
+}
+
+.sobre-yt.is-loading .sobre-yt__loading { opacity: 1; }
+.sobre-yt.is-loading .sobre-yt__play { opacity: 0.35; }
+.sobre-yt.is-loading { cursor: progress; }
+
+.sobre-yt__iframe--carregando {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
 }

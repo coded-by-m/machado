@@ -12,6 +12,7 @@
   --color-bg-light:      #4A5665;
   --color-steel:         #A7B0BA;
   --color-surface:       #F2F4F6;
+  --color-paper:         #FAFBFC;  /* branco tingido de navy — nunca #fff puro */
 
   /* ── CORES — Azuis Primários ── */
   --color-primary:       #1B4D84;

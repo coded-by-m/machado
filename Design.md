@@ -38,7 +38,7 @@ Com base nas imagens de paleta fornecidas pelo cliente (duas paletas):
 **Paleta Blue (acentos e primários):**
 | Token | Hex | Uso |
 |-------|-----|-----|
-| `--color-primary` | `#1A4B82` | CTA principal, botões, links ativos |
+| `--color-primary` | `#1B4D84` | CTA principal, botões, links ativos |
 | `--color-primary-light` | `#5B9BD5` | Hover de CTA, ícones em destaque |
 | `--color-primary-muted` | `#8FB4D4` | Bordas de cards de produto, separadores |
 | `--color-navy` | `#1E3A5F` | Alternativo escuro para botões ghost |
@@ -71,7 +71,7 @@ Com base nas imagens de paleta fornecidas pelo cliente (duas paletas):
   --color-surface:      #F2F4F6;
 
   /* Primary Blue */
-  --color-primary:      #1A4B82;
+  --color-primary:      #1B4D84;
   --color-primary-light:#5B9BD5;
   --color-primary-muted:#8FB4D4;
   --color-navy:         #1E3A5F;
@@ -103,23 +103,23 @@ Com base nas imagens de paleta fornecidas pelo cliente (duas paletas):
 --font-display: 'Machado', 'Arial Narrow', sans-serif;
 
 /* === FONTE SECUNDÁRIA — Títulos de seção, subtítulos === */
-/* Barlow Condensed: industrial, geométrico, combina com Machado */
---font-heading: 'Barlow Condensed', 'Arial Narrow', sans-serif;
+/* Horizon: face de títulos aprovada (h2 / section-title) */
+--font-titles: 'Horizon', 'Century Gothic', Arial, sans-serif;
 
 /* === FONTE CORPO === */
-/* Barlow: mesma família, tom profissional, muito legível */
---font-body: 'Barlow', 'Helvetica Neue', sans-serif;
+/* aktiv-grotesk (Typekit): corpo de texto */
+--font-body: 'aktiv-grotesk', 'Helvetica Neue', Arial, sans-serif;
 
 /* === FONTE MONO === */
-/* DM Mono: números de stats, numeração de cards, tags técnicas */
---font-mono: 'DM Mono', 'Courier New', monospace;
+/* geist-mono: números de stats, numeração de cards, tags técnicas */
+--font-mono: 'geist-mono', 'Geist Mono', 'Courier New', monospace;
 ```
 
 ### Google Fonts (importar no HTML)
 ```html
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=aktiv-grotesk+Condensed:wght@400;600;700;800;900&family=aktiv-grotesk:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 ```
 
 ### Regras de Uso da Fonte Machado (CRÍTICO)
@@ -128,12 +128,12 @@ Com base nas imagens de paleta fornecidas pelo cliente (duas paletas):
 | Headline hero principal | ✅ SIM |
 | Nome da marca no hero | ✅ SIM |
 | H1 de seção em destaque | ✅ SIM |
-| H2/H3 de seções | ❌ NÃO — usar Barlow Condensed Bold |
-| Body text, parágrafos | ❌ NÃO — usar Barlow Regular |
-| Labels, eyebrows, captions | ❌ NÃO — usar Barlow Condensed ou Barlow |
-| Números de stats | ❌ NÃO — usar DM Mono ou Barlow Condensed Black |
-| Botões/CTAs | ❌ NÃO — usar Barlow Condensed SemiBold |
-| Navbar links | ❌ NÃO — usar Barlow Condensed |
+| H2/H3 de seções | ❌ NÃO — usar Horizon Bold |
+| Body text, parágrafos | ❌ NÃO — usar aktiv-grotesk Regular |
+| Labels, eyebrows, captions | ❌ NÃO — usar Horizon ou aktiv-grotesk |
+| Números de stats | ❌ NÃO — usar geist-mono ou Horizon Black |
+| Botões/CTAs | ❌ NÃO — usar Horizon SemiBold |
+| Navbar links | ❌ NÃO — usar Horizon |
 
 ### Escala Tipográfica
 ```css
@@ -313,9 +313,9 @@ gsap.fromTo(img,
 - **Fundo inicial:** Transparente (`rgba(0,0,0,0)`)
 - **Fundo ao scroll (> 80px):** `rgba(28, 36, 48, 0.96)` + `backdrop-filter: blur(12px)`
 - **Logo:** Branco, alinhada à esquerda, 120px de largura
-- **Links:** Barlow Condensed SemiBold, 14px, `--tracking-wider`, maiúsculo, cor `--color-steel`
+- **Links:** Horizon SemiBold, 14px, `--tracking-wider`, maiúsculo, cor `--color-steel`
 - **Links hover:** cor `--color-primary-light`, transição 200ms
-- **CTA:** Botão filled `--color-primary` + texto branco, Barlow Condensed SemiBold
+- **CTA:** Botão filled `--color-primary` + texto branco, Horizon SemiBold
 
 ### Botão CTA Principal
 ```css
@@ -365,7 +365,7 @@ gsap.fromTo(img,
 - **Layout:** Split 50/50 (texto esquerda, produto direita) conforme mockup
 - **Fundo (atual):** Branco `#FEFEFE` plano, igual ao fundo opaco da foto (classe `.hero--light`), pra não criar borda entre imagem e seção. [Histórico: preto puro `#000` → gradiente claro → branco plano.]
 - **Headline:** Fonte Machado, `--text-display`, `--leading-none`, `--tracking-tight`
-- **Subtítulo:** Barlow Regular, 16-18px, `--color-steel`
+- **Subtítulo:** aktiv-grotesk Regular, 16-18px, `--color-steel`
 - **Vídeo/Imagem:** Lado direito, sem border-radius, com leve glow azul no produto
 - **CTA primário:** "FAÇA SEU ORÇAMENTO" — azul filled
 - **CTA secundário:** "CONHEÇA OS PRODUTOS" — ghost/outline
@@ -393,9 +393,9 @@ Hover do card:
 
 ### Seção Prova Social (números)
 ```
-Números grandes: DM Mono ou Barlow Condensed Black
-Ex: "15+" / "500+" / "98%" / "12"
-Rótulo abaixo: Barlow Regular, --color-text-muted
+Números grandes: geist-mono ou Horizon Black
+Ex: "22+" / "4.000+" / "3.000 m²"
+Rótulo abaixo: aktiv-grotesk Regular, --color-text-muted
 Separador: linha vertical 1px --color-border-light entre cada item
 ```
 
@@ -404,7 +404,7 @@ Separador: linha vertical 1px --color-border-light entre cada item
 - **Card:** `--color-bg-mid`, border `1px --color-border`, padding generoso
 - **Foto:** Circular, 60px, border azul 2px
 - **Stars:** 5 estrelas SVG amarelas/douradas
-- **Navegação:** Setas prev/next — Barlow Condensed, sem border-radius
+- **Navegação:** Setas prev/next — Horizon, sem border-radius
 
 ### Formulário de Contato
 ```
@@ -420,15 +420,15 @@ Estilo:
   - Fundo: --color-bg-mid
   - Inputs: border 1px --color-border, background --color-bg
   - Focus: border --color-primary-light + leve glow azul
-  - Labels: Barlow Condensed, --tracking-wide, uppercase, --color-text-muted
+  - Labels: Horizon, --tracking-wide, uppercase, --color-text-muted
 ```
 
 ### Rodapé
 - **Fundo:** `--color-bg` (mais escuro que as seções — mergulha para fechar)
 - **Linha superior:** 1px `--color-border-light` com leve glow
 - **Logo:** 100px, branco
-- **Links:** Barlow Regular 14px, `--color-text-muted`, hover `--color-primary-light`
-- **CNPJ/dados legais:** Barlow Regular 12px, `--color-steel`
+- **Links:** aktiv-grotesk Regular 14px, `--color-text-muted`, hover `--color-primary-light`
+- **CNPJ/dados legais:** aktiv-grotesk Regular 12px, `--color-steel`
 
 ---
 
@@ -457,9 +457,9 @@ Estilo:
 ### Prova Social — Números
 | Stat | Valor | Label |
 |------|-------|-------|
-| Anos no mercado | `15+` | Anos de Experiência |
-| Unidades produzidas | `500+` | Plataformas Entregues |
-| Clientes ativos | `200+` | Clientes Atendidos |
+| Anos no mercado | `22+` | Anos de Experiência |
+| Unidades produzidas | `4.000+` | Plataformas Entregues |
+| Área fabril | `3.000 m²` | Capacidade Fabril |
 | Estados | `12` | Estados Atendidos |
 
 ### 5 Diferenciais
@@ -496,7 +496,7 @@ Produtos ("arsenal", produto brilha no preto) e Footer são as **âncoras escura
 |-------|-------|-----|
 | Base concreto | `#FEFEFE` (hero, = fundo da foto), `#F6F7F8` (Sobre), `#F2F4F6` (`.section--light`) | Fundos claros. O hero usa o branco exato da imagem (zero borda); demais seções levemente frias. |
 | Tinta navy | `--color-navy-dark #1A2E46` / `--color-text-dark #1C2430` | Títulos, números, estrutura. Carrega o "peso". |
-| Acento azul | `--color-primary #1A4B82` / `--color-primary-light #5B9BD5` | CTA, número-herói, hover. ≤15%. |
+| Acento azul | `--color-primary #1B4D84` / `--color-primary-light #5B9BD5` | CTA, número-herói, hover. ≤15%. |
 | Aço | `--color-steel #A7B0BA` / navy em baixa opacidade | Texto secundário, captions, numerais ghost. |
 
 ### Tratamento por seção
@@ -514,3 +514,17 @@ Produtos ("arsenal", produto brilha no preto) e Footer são as **âncoras escura
 - Não repetir eyebrow mono minúsculo acima de toda seção (andaime de IA).
 - Sem grid de cards idênticos (ícone+título+texto).
 - Banidos: side-stripe (`border-left` colorido), gradient text, glassmorphism decorativo.
+
+
+---
+
+## ⚠️ Pendente de confirmação com o cliente (set/2026)
+
+1. **Estados atendidos — RESOLVIDO (set/2026).** O KPI exibia `27 UF` enquanto o ticker de
+   cobertura em `clientes.html` listava 18 estados. Alinhado para **18 UF**, que e o unico
+   numero com evidencia na propria pagina. Para subir esse numero, **estenda o ticker junto** —
+   um KPI maior que a lista visivel e exatamente a contradicao que foi corrigida.
+2. **Anos de mercado.** O site usa `22+` e `Fabricando desde 2003`. Em 2026 são 23 anos —
+   o `22+` continua tecnicamente verdadeiro, mas está congelado. Confirmar antes de atualizar.
+3. **Depoimentos de `clientes.html`.** Confirmados como reais pelo cliente; a linha de atribuição
+   atual é genérica. Se a origem for Google Maps (como na home), nomear a fonte é mais forte.

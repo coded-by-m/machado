@@ -17,7 +17,8 @@
 /* ── Fonte Proprietária ── */
 @font-face {
   font-family: 'Machado';
-  src: url('../assets/fonts/METAG___.TTF') format('truetype');
+  src: url('../assets/fonts/Machado-Display.woff2') format('woff2'),
+       url('../assets/fonts/METAG___.TTF') format('truetype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;

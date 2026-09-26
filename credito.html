@@ -14,13 +14,16 @@
     gtag('config', 'G-X7P96XT9CL');
   </script>
 
+  <!-- Coded Tracker — analytics first-party -->
+  <script defer src="https://web-production-784b1.up.railway.app/tracker/v1.js" data-site="ci_pub_66e8cbd6e32f3d07d75ba623d486af66"></script>
+
   <meta name="description" content="Machado Plataformas — BNDES, FINAME, Financiamento Sicredi, cartão em até 21x e pagamento à vista. Consulte as condições para adquirir sua plataforma." />
 
   <meta property="og:title" content="Linha de Crédito | Machado Plataformas" />
   <meta property="og:description" content="BNDES, FINAME, Sicredi, cartão em até 21x e pagamento à vista. Consulte as condições e coloque sua plataforma na rua." />
-  <meta property="og:url" content="https://machadoplataformas.com.br/credito.html" />
+  <meta property="og:url" content="https://www.machadoplataformas.com.br/credito.html" />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://machadoplataformas.com.br/assets/images/og/machado-share.jpg" />
+  <meta property="og:image" content="https://www.machadoplataformas.com.br/assets/images/og/machado-share.jpg" />
   <meta property="og:site_name" content="Machado Plataformas" />
   <meta property="og:locale" content="pt_BR" />
   <meta name="twitter:card" content="summary_large_image" />
@@ -112,7 +115,7 @@
     /* ─── Negociação assistida: white card ─── */
 
     .financiamento-brief {
-      background-color: #FFFFFF;
+      background-color: var(--color-paper);
       border-color: rgba(28, 36, 48, 0.13);
       box-shadow: 0 12px 40px rgba(28, 36, 48, 0.08), 0 2px 8px rgba(28, 36, 48, 0.04);
     }
@@ -153,7 +156,7 @@
     /* ─── Cards (Featured Tier): white cards ─── */
 
     .financiamento-card {
-      background-color: #FFFFFF;
+      background-color: var(--color-paper);
       border-color: rgba(28, 36, 48, 0.13);
     }
 
@@ -200,7 +203,7 @@
     /* ─── Items (Standard Tier): white cards ─── */
 
     .financiamento-item {
-      background-color: #FFFFFF;
+      background-color: var(--color-paper);
       border-color: rgba(28, 36, 48, 0.13);
     }
 
@@ -284,7 +287,7 @@
 
     /* ─── Tier separator: sobre fundo claro da seção ─── */
     .financiamento-tier-sep {
-      color: rgba(28, 36, 48, 0.45);
+      color: rgba(28, 36, 48, 0.68);
     }
 
     .financiamento-tier-sep::before,
@@ -326,14 +329,14 @@
     }
 
   </style>
-  <link rel="canonical" href="https://machadoplataformas.com.br/credito.html" />
+  <link rel="canonical" href="https://www.machadoplataformas.com.br/credito.html" />
 </head>
 <body>
 
   <a href="#main" class="skip-link">Ir para o conteúdo</a>
 
   <!-- ── WhatsApp Flutuante ── -->
-  <a href="https://wa.me/554896952440?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20solicitar%20um%20orçamento."
+  <a data-cm-role="whatsapp" data-cm-id="floating-whatsapp" href="https://wa.me/554896952440?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20solicitar%20um%20orçamento."
      class="whatsapp-float"
      target="_blank"
      rel="noopener noreferrer"
@@ -354,6 +357,14 @@
       <a href="./index.html" class="navbar-logo" aria-label="Machado Plataformas — Início">
         <img src="./assets/images/logo/logo.svg" alt="Machado Plataformas" width="130" height="32" />
       </a>
+      <nav class="navbar-links" aria-label="Navegação principal">
+          <a href="./index.html">Início</a>
+          <a href="./produtos.html">Produtos</a>
+          <a href="./clientes.html">Clientes</a>
+          <a href="./sobre.html">Sobre</a>
+          <a href="./credito.html" class="is-active" aria-current="page">Crédito</a>
+      </nav>
+
       <button class="navbar-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="navbar-panel">
         <span class="navbar-toggle__label">Menu</span>
         <span class="navbar-toggle__icon" aria-hidden="true">
@@ -361,7 +372,7 @@
           <span class="navbar-toggle__line"></span>
         </span>
       </button>
-      <a href="https://wa.me/554896952440?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20solicitar%20um%20orçamento."
+      <a data-cm-role="whatsapp" data-cm-id="nav-quote" href="https://wa.me/554896952440?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20solicitar%20um%20orçamento."
          class="btn btn--split btn--split-primary navbar-cta"
          target="_blank" rel="noopener noreferrer"
          data-magnetic>
@@ -387,7 +398,7 @@
           <div class="navbar-panel__contact">
             <span class="navbar-panel__label mono">Contato</span>
             <a href="mailto:machadoplataformas@gmail.com" class="navbar-panel__email">machadoplataformas@gmail.com</a>
-            <a href="https://wa.me/554896952440?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20solicitar%20um%20orçamento."
+            <a data-cm-role="whatsapp" data-cm-id="menu-quote" href="https://wa.me/554896952440?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20solicitar%20um%20orçamento."
                class="navbar-panel__wa-cta"
                target="_blank" rel="noopener noreferrer">
               Solicitar orçamento <span aria-hidden="true">→</span>
@@ -447,7 +458,7 @@
   <main id="main">
 
     <!-- HERO DA PÁGINA -->
-    <section class="page-hero" aria-label="Linha de Crédito">
+    <section class="page-hero" data-cm-section="hero" aria-label="Linha de Crédito">
       <div class="page-hero__scan" aria-hidden="true"></div>
       <div class="page-hero__ticker" aria-hidden="true">
         <div class="page-hero__ticker-inner">
@@ -456,14 +467,7 @@
           <span class="page-hero__ticker-text">MACHADO PLATAFORMAS — FABRICAÇÃO PRÓPRIA — PALHOÇA · SC — DESDE 2003 — AÇO ALTA RESISTÊNCIA — ENTREGA NACIONAL —&nbsp;</span>
         </div>
       </div>
-      <span class="page-hero__page-num" aria-hidden="true">— 04 / 04</span>
-      <span class="page-hero__coords" aria-hidden="true">−27.6453° S · −48.6701° O<br>ALT 5M · SC · BR</span>
-      <div class="page-hero__deco" aria-hidden="true">
-        <span class="page-hero__deco-num">04</span>
-        <span class="page-hero__deco-label">SC · BR</span>
-      </div>
       <div class="container">
-        <p class="page-hero__status" aria-hidden="true">Sistema ativo</p>
         <p class="page-hero__eyebrow">Condições de pagamento</p>
         <h1 class="page-hero__title">
           <span class="page-hero__title-line">
@@ -485,7 +489,7 @@
     </div>
 
     <!-- FINANCIAMENTO -->
-    <section id="financiamento" class="section section--dark section--light financiamento" aria-labelledby="financiamento-heading">
+    <section id="financiamento" data-cm-section="financing" class="section section--dark section--light financiamento" aria-labelledby="financiamento-heading">
       <div class="container">
 
         <div class="financiamento-layout">
@@ -505,7 +509,7 @@
             </p>
 
             <div class="financiamento-cta" data-animate="fade-up" data-delay="0.2">
-              <a href="https://wa.me/554896952440?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20solicitar%20um%20orçamento."
+              <a href="https://wa.me/554896952440?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20saber%20sobre%20as%20condi%C3%A7%C3%B5es%20de%20financiamento."
                  class="btn btn--split btn--split-primary"
                  target="_blank" rel="noopener noreferrer"
                  data-magnetic>
@@ -553,8 +557,8 @@
           <!-- TIER 1: Opções de crédito e financiamento -->
           <div class="financiamento-featured">
 
-            <a class="financiamento-card"
-               href="https://wa.me/554896952440?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20solicitar%20um%20orçamento."
+            <a data-cm-role="whatsapp" data-cm-id="financing-bndes" class="financiamento-card"
+               href="https://wa.me/554896952440?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20saber%20sobre%20o%20financiamento%20BNDES."
                target="_blank" rel="noopener noreferrer"
                data-animate="fade-up" data-delay="0"
                aria-label="Consultar condições BNDES">
@@ -575,12 +579,12 @@
                 <p class="financiamento-card__desc">Financiamento via Banco Nacional de Desenvolvimento para aquisição de implementos rodoviários. Consulte enquadramento e condições com nossa equipe.</p>
               </div>
               <div class="financiamento-card__footer">
-                <span class="financiamento-card__cta">Ver detalhes →</span>
+                <span class="financiamento-card__cta">Falar sobre BNDES →</span>
               </div>
             </a>
 
-            <a class="financiamento-card"
-               href="https://wa.me/554896952440?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20solicitar%20um%20orçamento."
+            <a data-cm-role="whatsapp" data-cm-id="financing-finame" class="financiamento-card"
+               href="https://wa.me/554896952440?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20saber%20sobre%20o%20financiamento%20FINAME."
                target="_blank" rel="noopener noreferrer"
                data-animate="fade-up" data-delay="0.1"
                aria-label="Consultar condições FINAME">
@@ -598,12 +602,12 @@
                 <p class="financiamento-card__desc">Linha BNDES/FINAME para financiamento de máquinas e equipamentos nacionais. Taxas diferenciadas para empresas do setor de transporte e logística.</p>
               </div>
               <div class="financiamento-card__footer">
-                <span class="financiamento-card__cta">Ver detalhes →</span>
+                <span class="financiamento-card__cta">Falar sobre FINAME →</span>
               </div>
             </a>
 
-            <a class="financiamento-card"
-               href="https://wa.me/554896952440?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20solicitar%20um%20orçamento."
+            <a data-cm-role="whatsapp" data-cm-id="financing-sicredi" class="financiamento-card"
+               href="https://wa.me/554896952440?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20saber%20sobre%20o%20financiamento%20Sicredi."
                target="_blank" rel="noopener noreferrer"
                data-animate="fade-up" data-delay="0.2"
                aria-label="Consultar condições Financiamento Sicredi">
@@ -622,7 +626,7 @@
                 <p class="financiamento-card__desc">Crédito via Sicredi para aquisição da plataforma. Condições acessíveis com atendimento cooperativado e análise ágil.</p>
               </div>
               <div class="financiamento-card__footer">
-                <span class="financiamento-card__cta">Ver detalhes →</span>
+                <span class="financiamento-card__cta">Falar sobre o Sicredi →</span>
               </div>
             </a>
 
@@ -636,7 +640,7 @@
           <!-- TIER 2: Pagamento direto -->
           <div class="financiamento-standard">
 
-            <a class="financiamento-item" href="https://wa.me/554896952440?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20solicitar%20um%20orçamento." target="_blank" rel="noopener noreferrer" data-animate="fade-up" data-delay="0.2" aria-label="Consultar pagamento por cartão de crédito em até 21x">
+            <a data-cm-role="whatsapp" data-cm-id="payment-cartao-de-credito" class="financiamento-item" href="https://wa.me/554896952440?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20saber%20as%20condi%C3%A7%C3%B5es%20para%20cart%C3%A3o%20de%20cr%C3%A9dito." target="_blank" rel="noopener noreferrer" data-animate="fade-up" data-delay="0.2" aria-label="Consultar pagamento por cartão de crédito em até 21x">
               <span class="financiamento-item__square" aria-hidden="true"></span>
               <svg class="financiamento-item__icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <rect x="1" y="4" width="22" height="16" rx="2"/><path d="M1 10h22"/>
@@ -646,7 +650,7 @@
               <span class="financiamento-item__hint">Em até 21x</span>
             </a>
 
-            <a class="financiamento-item" href="https://wa.me/554896952440?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20solicitar%20um%20orçamento." target="_blank" rel="noopener noreferrer" data-animate="fade-up" data-delay="0.26" aria-label="Consultar condições de pagamento à vista">
+            <a data-cm-role="whatsapp" data-cm-id="payment-pagamento-a-vista" class="financiamento-item" href="https://wa.me/554896952440?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20saber%20as%20condi%C3%A7%C3%B5es%20para%20pagamento%20%C3%A0%20vista." target="_blank" rel="noopener noreferrer" data-animate="fade-up" data-delay="0.26" aria-label="Consultar condições de pagamento à vista">
               <span class="financiamento-item__square" aria-hidden="true"></span>
               <svg class="financiamento-item__icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
@@ -668,12 +672,12 @@
     </section>
 
     <!-- CTA FINAL -->
-    <section class="page-cta section--light" aria-label="Solicitar orçamento">
+    <section class="page-cta section--light" data-cm-section="contact" aria-label="Solicitar orçamento">
       <div class="container">
         <p class="page-cta__eyebrow">Vamos trabalhar juntos</p>
         <h2 class="page-cta__title">Consulte as<br />condições.</h2>
         <p class="page-cta__note">Sem compromisso</p>
-        <a href="https://wa.me/554896952440?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20solicitar%20um%20orçamento."
+        <a data-cm-role="whatsapp" data-cm-id="page-cta-quote" href="https://wa.me/554896952440?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20saber%20sobre%20as%20condi%C3%A7%C3%B5es%20de%20financiamento."
            class="btn btn--split btn--split-primary"
            target="_blank" rel="noopener noreferrer"
            data-magnetic>
@@ -690,7 +694,7 @@
   </main>
 
   <!-- FOOTER -->
-  <footer id="footer" class="footer" role="contentinfo">
+  <footer id="footer" data-cm-section="footer" class="footer" role="contentinfo">
     <div class="footer-headline-wrap" aria-hidden="true">
       <p class="footer-headline" aria-hidden="true">Machado</p>
     </div>
@@ -734,7 +738,7 @@
         </div>
         <div class="footer-col footer-col--contact">
           <h3 class="footer-col__title">Contato</h3>
-          <a class="footer-cta" href="https://wa.me/554896952440?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20solicitar%20um%20orçamento." target="_blank" rel="noopener noreferrer">
+          <a data-cm-role="whatsapp" data-cm-id="footer-quote" class="footer-cta" href="https://wa.me/554896952440?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20solicitar%20um%20orçamento." target="_blank" rel="noopener noreferrer">
             <span>Solicite um orçamento sem compromisso</span>
             <span aria-hidden="true">→</span>
           </a>
@@ -749,22 +753,21 @@
       <div class="footer-bottom">
         <p class="footer-copy mono">&copy; 2026 Machado Plataformas. Todos os direitos reservados.</p>
         <p class="footer-copy mono">Fabricando desde 2003 · Palhoça, SC</p>
-        <p class="footer-copy footer-signature mono">△ Desenvolvido por <a href="https://wa.me/5548999916638?text=Olá!%20Vi%20o%20site%20da%20Machado%20e%20gostei%20do%20trabalho.%20Gostaria%20de%20um%20orçamento%20para%20o%20meu%20site%2Fprojeto." target="_blank" rel="noopener noreferrer">Coded by M</a></p>
+        <p class="footer-copy footer-signature mono">△ Desenvolvido por <a data-cm-ignore href="https://wa.me/5548999916638?text=Olá!%20Vi%20o%20site%20da%20Machado%20e%20gostei%20do%20trabalho.%20Gostaria%20de%20um%20orçamento%20para%20o%20meu%20site%2Fprojeto." target="_blank" rel="noopener noreferrer">Coded by M</a></p>
       </div>
     </div>
   </footer>
 
-  <script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/SplitText.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/CustomEase.min.js"></script>
-  <script src="./js/gsap-setup.js"></script>
+  <script defer src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/CustomEase.min.js"></script>
+  <script defer src="./js/gsap-setup.js"></script>
   <script type="module" src="./js/main.js"></script>
 
   <!-- Timeline de etapas: animação do brief de crédito -->
   <script>
-  (function () {
+  document.addEventListener('DOMContentLoaded', function () {
     const container = document.querySelector('.financiamento-brief__steps');
     if (!container || typeof gsap === 'undefined') return;
 
@@ -808,7 +811,7 @@
         /* Pausa antes do próximo */
         .to({}, { duration: 0.55 });
     });
-  })();
+  });
   </script>
 
 </body>

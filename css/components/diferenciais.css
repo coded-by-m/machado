@@ -207,3 +207,404 @@
     transform: none;
   }
 }
+
+
+/* ── Redesign claro jun/2026 — sincronizado de css/bundle.css ── */
+/* Indicador depende de padding-left: 32px (desktop only) */
+  .diferenciais-indicator {
+    display: none;
+  }
+
+.diferencial-step.is-active {
+    opacity: 1;
+    transform: none;
+  }
+
+.diferenciais-header {
+    margin-bottom: var(--space-5);
+  }
+
+.diferencial-step {
+    grid-template-columns: 1.8rem minmax(0, 1fr);
+    column-gap: var(--space-3);
+    max-width: none;
+  }
+
+.diferencial-step__chips {
+    font-size: 0.7rem;
+  }
+
+.financiamento-panel__body {
+    padding: var(--space-5);
+  }
+
+/* ===========================
+   COMPONENTE: Diferenciais / Pilares
+   Depende de: variables.css, layout.css
+=========================== */
+
+.diferenciais {
+  background-color: var(--color-stats-bg);
+  color: var(--color-stats-text);
+  overflow: visible;
+}
+
+.diferenciais-title {
+  font-size: clamp(var(--text-4xl), 4vw, var(--text-5xl));
+  line-height: 0.95;
+  white-space: nowrap;
+}
+
+.diferenciais-layout {
+  display: grid;
+  gap: var(--space-12);
+}
+
+.diferenciais-indicator {
+  --indicator-rotation: 0deg;
+  position: absolute;
+  top: 0;
+  left: -1.65rem;
+  width: 1rem;
+  height: 1rem;
+  transform: translateY(0);
+  transition:
+    opacity var(--dur-slow) var(--ease-machado),
+    transform var(--dur-slow) var(--ease-machado);
+  z-index: 2;
+}
+
+.diferencial-step {
+  position: relative;
+  display: grid;
+  grid-template-columns: 2.2rem minmax(0, 1fr);
+  column-gap: var(--space-4);
+  align-items: start;
+  max-width: 37rem;
+  opacity: 0.42;
+  transform: translateX(0) scale(1);
+  transform-origin: left center;
+  transition:
+    opacity var(--dur-slow) var(--ease-machado),
+    transform var(--dur-slow) var(--ease-machado);
+}
+
+.diferencial-step__num {
+  padding-top: 0.45rem;
+  font-family: var(--font-ui-mono);
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+  letter-spacing: 0.08em;
+}
+
+.diferencial-step__title {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: clamp(var(--text-xl), 2vw, var(--text-3xl));
+  font-weight: var(--weight-regular);
+  line-height: 1.08;
+  letter-spacing: 0;
+  color: var(--color-stats-text);
+}
+
+.diferenciais-visual {
+  min-height: 16rem;
+}
+
+.diferenciais-visual__image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transform: translateY(var(--space-5)) scale(1.04);
+  transition:
+    opacity 680ms var(--ease-machado),
+    transform 900ms var(--ease-machado);
+}
+
+.diferenciais-timeline {
+    gap: var(--space-8);
+  }
+
+.diferenciais-visual__sticky {
+    aspect-ratio: 3 / 4;
+  }
+
+.diferenciais > .container {
+    width: 100%;
+  }
+
+.diferenciais-timeline {
+    gap: clamp(var(--space-6), 2.4vh, var(--space-8));
+    padding-left: var(--space-8);
+  }
+
+.diferenciais-visual__sticky {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+  }
+
+.financiamento-panel {
+  position: relative;
+  display: grid;
+  overflow: hidden;
+  min-height: 320px;
+  background-color: var(--color-menu-bg);
+  border: 1px solid var(--color-border-light);
+  box-shadow: 0 24px 60px var(--color-navbar-shadow);
+}
+
+.financiamento-panel__media {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+}
+
+.financiamento-panel__media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.financiamento-panel__eyebrow {
+  font-family: var(--font-ui-mono);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-medium);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-primary-light);
+}
+
+.financiamento-panel__steps {
+  display: grid;
+  gap: var(--space-2);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--color-border-light);
+}
+
+.financiamento-panel__body {
+    padding: var(--space-8);
+  }
+
+.financiamento-panel,
+  .financiamento-panel__body {
+    min-height: 280px;
+  }
+
+/* ─────────────────────────────────────────────────────
+   DIFERENCIAIS HOME — grid da index
+───────────────────────────────────────────────────── */
+
+.diferenciais-home__head {
+  max-width: 52rem;
+  margin-bottom: clamp(3rem, 5vw, 4.5rem);
+}
+
+.diferenciais-home .section-title {
+  font-size: clamp(1.75rem, 5.5vw, 3rem);
+  line-height: 1;
+  color: var(--color-text-dark);
+}
+
+/* Layout assimétrico: numerais de concreto gigantes, coluna direita escalonada */
+.diferenciais-home__grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(2rem, 4vw, 3rem);
+}
+
+/* coluna direita desce — quebra a simetria do grid */
+  .dif-home-card:nth-child(2),
+  .dif-home-card:nth-child(4) {
+    margin-top: clamp(2rem, 6vw, 5.5rem);
+  }
+
+.dif-home-card {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  column-gap: clamp(1.25rem, 2vw, 2rem);
+  align-items: start;
+  padding-top: clamp(1.25rem, 2vw, 1.75rem);
+  border-top: 2px solid rgba(28, 36, 48, 0.18);
+}
+
+.dif-home-card__title {
+  grid-column: 2;
+  grid-row: 1;
+  font-family: var(--font-titles);
+  font-size: clamp(1.05rem, 1.6vw, 1.35rem);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-navy-dark);
+  line-height: 1.08;
+  margin: 0 0 var(--space-3);
+}
+
+@media (max-width: 1023px) {
+  .diferenciais-title {
+    white-space: normal;
+    font-size: clamp(var(--text-3xl), 6.5vw, var(--text-4xl));
+    line-height: 1;
+    }
+  /* Indicador depende de padding-left: 32px (desktop only) */
+  .diferenciais-indicator {
+    display: none;
+    }
+  /* Sem deslocamento horizontal — vai causar overflow em telas estreitas */
+  .diferencial-step {
+    opacity: 1;
+    transform: none;
+    transition: opacity var(--dur-normal) ease;
+    }
+  .diferencial-step.is-active {
+    opacity: 1;
+    transform: none;
+    }
+}
+
+@media (max-width: 767px) {
+  .diferenciais-layout {
+    gap: var(--space-8);
+    }
+  .diferenciais-header {
+    margin-bottom: var(--space-5);
+    }
+  .diferenciais-timeline {
+    gap: var(--space-6);
+    padding-left: 0;
+    }
+  .diferencial-step {
+    grid-template-columns: 1.8rem minmax(0, 1fr);
+    column-gap: var(--space-3);
+    max-width: none;
+    }
+  .diferencial-step__title {
+    font-size: clamp(var(--text-lg), 4vw, var(--text-2xl));
+    line-height: 1.1;
+    }
+  .diferencial-step__chips {
+    font-size: 0.7rem;
+    }
+  .diferenciais-visual__sticky {
+    min-height: clamp(13rem, 46vw, 22rem);
+    }
+}
+
+@media (max-width: 767px) {
+  .financiamento-panel__title {
+    font-size: var(--text-2xl);
+    }
+  .financiamento-panel__body {
+    padding: var(--space-5);
+    }
+}
+
+@media (min-width: 768px) {
+  .diferenciais-kicker {
+    padding-top: 0;
+    }
+  .diferenciais-timeline {
+    gap: var(--space-8);
+    }
+  .diferenciais-layout {
+    grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+    align-items: start;
+    gap: clamp(var(--space-8), 4vw, var(--space-12));
+    }
+  .diferenciais-visual__sticky {
+    aspect-ratio: 3 / 4;
+    }
+}
+
+@media (min-width: 1024px) {
+  .diferenciais {
+    display: flex;
+    align-items: center;
+    min-height: 100vh;
+    padding-block: clamp(var(--space-8), 4vw, var(--space-12));
+    }
+  .diferenciais > .container {
+    width: 100%;
+    }
+  .diferenciais-layout {
+    grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+    align-items: center;
+    gap: clamp(var(--space-8), 4vw, var(--space-14));
+    }
+  .diferenciais-timeline {
+    gap: clamp(var(--space-6), 2.4vh, var(--space-8));
+    padding-left: var(--space-8);
+    }
+  /* Imagem retrato 4:5 — steps ficam em 60%, imagem em 40% (igual à referência) */
+  .diferenciais-visual {
+    width: 100%;
+    }
+  .diferenciais-visual__sticky {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .diferencial-step,
+  .diferencial-step__content,
+  .diferenciais-indicator,
+  .diferenciais-indicator::before,
+  .diferenciais-visual__image {
+    transition: none;
+    transform: none;
+    }
+}
+
+@media (min-width: 768px) {
+  .financiamento-panel__body {
+    padding: var(--space-8);
+    }
+  .financiamento-panel__steps {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 480px) {
+  .financiamento-panel,
+  .financiamento-panel__body {
+    min-height: 280px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .financiamento-panel::before {
+    animation: none;
+    transform: scaleX(1);
+    }
+}
+
+@media (min-width: 768px) {
+  .diferenciais-home__grid {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: clamp(3rem, 6vw, 7rem);
+    row-gap: clamp(2.5rem, 4vw, 4.5rem);
+    }
+  /* coluna direita desce — quebra a simetria do grid */
+  .dif-home-card:nth-child(2),
+  .dif-home-card:nth-child(4) {
+    margin-top: clamp(2rem, 6vw, 5.5rem);
+    }
+}
+
+@media (hover: hover) {
+  .dif-home-card:hover .dif-home-card__num { color: var(--color-primary);   }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dif-home-card { transition: none;   }
+}

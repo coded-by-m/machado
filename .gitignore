@@ -30,3 +30,7 @@ capture.mjs
 
 # Logs
 *.log
+
+# Vídeos-fonte (masters de edição) — só os previews otimizados vão para o deploy
+assets/videos/YTDown.com_*.mp4
+assets/videos/*_1080p.mp4

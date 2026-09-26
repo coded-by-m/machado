@@ -73,10 +73,10 @@
 
 .localizacao__address-label {
   font-family: var(--font-ui-mono);
-  font-size: 0.56rem;
+  font-size: 0.7rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.22);
+  color: rgba(255, 255, 255, 0.62);
   padding-top: 2px;
 }
 

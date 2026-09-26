@@ -619,3 +619,54 @@
     animation: none;
   }
 }
+
+
+/* ── Lista de condições em linhas ──
+   Substitui o grid de cards idênticos: uma linha por condição, mesma
+   estrutura para programa e pagamento direto. Reduz a varredura de
+   5 opções lado a lado para uma leitura vertical única. */
+@media (min-width: 768px) {
+  .financiamento-featured,
+  .financiamento-standard {
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+  }
+
+  .financiamento-featured .financiamento-card,
+  .financiamento-standard .financiamento-item {
+    flex-direction: row;
+    align-items: center;
+    gap: var(--space-5);
+    padding: var(--space-5) var(--space-6);
+  }
+
+  .financiamento-featured .financiamento-card__body,
+  .financiamento-standard .financiamento-item__desc {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  .financiamento-featured .financiamento-card__icon-wrap,
+  .financiamento-standard .financiamento-item__icon {
+    flex: 0 0 auto;
+  }
+
+  .financiamento-featured .financiamento-card__footer,
+  .financiamento-standard .financiamento-item__hint {
+    margin-left: auto;
+    flex: 0 0 auto;
+    border-top: 0;
+    padding-top: 0;
+    white-space: nowrap;
+  }
+}
+
+@media (min-width: 1024px) {
+  .financiamento-featured,
+  .financiamento-standard {
+    grid-template-columns: 1fr;
+  }
+  .financiamento-standard .financiamento-item {
+    grid-column: auto;
+  }
+}
