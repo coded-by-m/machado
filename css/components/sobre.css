@@ -353,9 +353,11 @@
   position: absolute;
   width: 96px;
   height: 96px;
-  border-radius: 0;
-  background: var(--color-primary);
-  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   transition:
     transform 0.45s var(--ease-machado),
     background 0.45s ease,
@@ -367,8 +369,8 @@
   position: absolute;
   width: 96px;
   height: 96px;
-  border-radius: 0;
-  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.1);
   animation: yt-pulse 2.8s ease-in-out infinite;
 }
 
@@ -384,7 +386,7 @@
   .sobre-yt:hover .sobre-yt__play::before {
     transform: scale(1.14);
     background: rgba(26, 75, 130, 0.7);
-    border-color: rgba(255, 255, 255, 0.66);
+    border-color: rgba(255, 255, 255, 0.3);
   }
 }
 
