@@ -1,0 +1,35 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "redirects": [
+    {
+      "source": "/contato",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/contato/",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/sobrenos",
+      "destination": "/sobre.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/sobrenos/",
+      "destination": "/sobre.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/trabalhos",
+      "destination": "/produtos.html",
+      "statusCode": 301
+    },
+    {
+      "source": "/trabalhos/",
+      "destination": "/produtos.html",
+      "statusCode": 301
+    }
+  ]
+}
