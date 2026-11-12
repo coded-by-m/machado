@@ -5947,21 +5947,26 @@ body {
   .sobre-kpi {
     transition: none;
   }
+  /* Sem animação, cada elemento fica no estado final do modo normal.
+     Nada de width/height aqui: o tamanho vem das regras base. */
   .sobre-yt__play::after,
   .sobre-corners span,
   .sobre-kicker__rule,
-  .sobre-kpi--hero {
+  .sobre-kpi--hero::before {
     animation: none;
-    opacity: 0.4;
-    width: 14px;
-    height: 14px;
+  }
+  .sobre-yt__play::after {
+    opacity: 0.5; /* repouso do yt-pulse */
+  }
+  .sobre-corners span {
+    opacity: 0.4; /* fim do sobre-corner-draw */
   }
   .sobre-kicker__rule {
-    width: 2rem;
-    opacity: 0.8;
+    opacity: 0.8; /* fim do sobre-rule-draw */
+    transform: none;
   }
-  .sobre-kpi--hero {
-    border-left-color: var(--color-primary-light);
+  .sobre-kpi--hero::before {
+    opacity: 0.55; /* repouso do kpi-border-pulse */
   }
 }
 

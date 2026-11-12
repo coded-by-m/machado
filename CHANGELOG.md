@@ -4,6 +4,17 @@
 > Formato: `[AAAA-MM-DD] Tipo — Descrição breve` seguido de detalhes.
 > Tipos: `FEAT` (novo recurso), `FIX` (correção), `STYLE` (visual/CSS), `REFACTOR`, `CHORE` (estrutura/config), `CONTENT` (textos/imagens).
 
+## [2026-11-11] FIX — Seção "Feito aqui." quebrada com prefers-reduced-motion
+
+**Agente:** Claude Code
+
+### Alterado
+- `css/components/sobre.css` + `css/bundle.css` — bloco `@media (prefers-reduced-motion: reduce)` aplicava `width/height: 14px` e `opacity: 0.4` (regra pensada para os cantinhos decorativos) também no card `.sobre-kpi--hero`, que encolhia para 48×48 e o "22+" vazava sobre o parágrafo. Agora o alvo é o `::before` (faixa pulsante), e só a animação é desligada.
+- Mesmo bloco: `.sobre-kicker__rule` ficava invisível (`scaleX(0)` sem animação) → `transform: none`; anel do play `.sobre-yt__play::after` encolhia de 96px para 14px → mantém tamanho base, opacidade de repouso 0.5.
+- Visual com movimento normal inalterado.
+
+---
+
 ## [2026-05-25] CHORE — Conversão de imagens para WebP + resize
 
 **Agente:** Claude Code
