@@ -56,13 +56,26 @@
   flex-shrink: 0;
 }
 
+@keyframes heroRv {
+  from { opacity: 0; transform: translateY(20px); clip-path: inset(0 0 100% 0); }
+  to   { opacity: 1; transform: translateY(0);    clip-path: inset(0 0 0 0); }
+}
+@keyframes heroFade {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
 [data-hero-reveal] {
   position: relative;
   overflow: hidden;
-  opacity: 0;
-  clip-path: inset(0 0 100% 0);
-  transform: translateY(var(--space-5));
-  will-change: opacity, transform, clip-path;
+  animation: heroRv .84s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.hero-kicker[data-hero-reveal] { animation-delay: .05s; }
+.hero-title__line[data-hero-reveal] { animation-delay: .15s; }
+.hero-title__line:last-child[data-hero-reveal] { animation-delay: .25s; }
+.hero-subtitle[data-hero-reveal] { animation-delay: .3s; }
+.hero-ctas { animation: heroFade .6s cubic-bezier(0.16, 1, 0.3, 1) .45s both; }
+@media (prefers-reduced-motion: reduce) {
+  [data-hero-reveal], .hero-ctas { animation: none; }
 }
 
 .hero-reveal__block {
@@ -104,7 +117,7 @@
 }
 
 .hero-subtitle {
-  max-width: 34rem;
+  max-width: 24rem;
   margin: 0;
   font-size: 1.16rem;
   line-height: 1.65;
@@ -340,7 +353,7 @@
   }
 
   .hero-title {
-    font-size: clamp(4.8rem, 10vw, 6rem);
+    font-size: clamp(4.2rem, 8.4vw, 5.4rem);
     gap: 0.95rem;
   }
 
@@ -373,7 +386,7 @@
   }
 
   .hero-title {
-    font-size: clamp(3.1rem, 4.8vw, 5rem);
+    font-size: clamp(3rem, 4.6vw, 4.8rem);
     gap: 1.3rem;
   }
 
@@ -418,7 +431,7 @@
   }
 
   .hero-title {
-    font-size: clamp(3.85rem, 4.8vw, 5rem);
+    font-size: clamp(3.7rem, 4.6vw, 4.8rem);
     gap: 1.4rem;
   }
 
@@ -459,6 +472,7 @@
 
 /* ══════════════════════════════════════════════════════
    HERO CLARO (home) — override escopado em .hero--light
+   Inverte o hero de preto → branco sem tocar nas regras base.
 ══════════════════════════════════════════════════════ */
 .hero--light {
   background: #FEFEFE;
@@ -471,11 +485,12 @@
 .hero--light .hero-link:hover { color: var(--color-primary); text-decoration-color: var(--color-primary); }
 .hero--light .hero-scroll__line { background: linear-gradient(to bottom, var(--color-primary), transparent); }
 
+/* Grid técnico removido no hero claro (pedido do cliente) */
 .hero--light .hero-stage::after { display: none; }
 
-/* Foto de estúdio usada INTEIRA (sem recorte): chão e sombra reais da foto.
-   Fundo do hero casa com o cinza-claro da foto; fade no lado do texto funde
-   a imagem ao fundo sem costura. */
+/* Foto de estúdio usada INTEIRA (sem recorte): o chão/sombra reais da foto
+   fazem o trabalho. O fundo do hero casa com o cinza-claro da foto, e um
+   fade no lado do texto funde a imagem ao fundo sem costura visível. */
 .hero--light .hero-media__glow { display: none; }
 .hero--light .hero-floor { display: none; }
 .hero--light .hero-img {
@@ -483,7 +498,7 @@
   object-fit: contain;
 }
 
-/* Tablet (768–1023): empilha — texto em cima, imagem cheia embaixo. */
+/* Tablet (768–1023): empilha — texto em cima, imagem cheia embaixo. Sem sobreposição. */
 @media (min-width: 768px) and (max-width: 1023px) {
   .hero--light { min-height: auto; background: #FEFEFE; }
   .hero--light .hero-inner { gap: var(--space-6); padding-block: var(--space-10) var(--space-12); }
@@ -496,13 +511,15 @@
   }
 }
 
-/* Desktop: coluna de texto capada; caminhão na direita sem invadir. */
+/* Desktop: coluna de texto capada à esquerda; caminhão na direita sem invadir. */
 @media (min-width: 1024px) {
   .hero--light .hero-content { max-width: 41vw; }
   .hero--light .hero-img { width: 53vw; right: -2%; bottom: 2%; }
 }
 
 @media (min-width: 1600px) {
+  /* container do texto fica travado/centralizado; imagem não pode crescer
+     (vw) ou invade o texto. Mantém ~50vw e alinha à direita do container. */
   .hero--light .hero-content { max-width: 40vw; }
   .hero--light .hero-img { width: 48vw; right: 0; }
 }

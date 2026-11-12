@@ -4,6 +4,26 @@
 > Formato: `[AAAA-MM-DD] Tipo — Descrição breve` seguido de detalhes.
 > Tipos: `FEAT` (novo recurso), `FIX` (correção), `STYLE` (visual/CSS), `REFACTOR`, `CHORE` (estrutura/config), `CONTENT` (textos/imagens).
 
+## [2026-11-11] CHORE — bundle.css e parciais reconciliados
+
+**Agente:** Claude Code
+
+Comparação regra a regra (`@media` + seletor + declarações) mostrava 19 regras só no bundle, 17 só nos parciais e 57 com valores diferentes. Hoje `check-drift` passa e a comparação semântica dá zero.
+
+### Sem efeito visual (estilos computados idênticos nas 5 páginas, 1440 e 390)
+- `hero.css`, `diferenciais.css`, `produtos.css`, `animations.css` (cursor) — só a home usa: parcial ← bundle. `diferenciais.css` estava com regras de `@media` "achatadas" para fora das queries.
+- `mobile.css` — bloco "HERO MOBILE" do fim do bundle copiado para o fim do parcial; removida regra de `.hero-subtitle` que só existia no parcial.
+- `financiamento.css` — só credito.html usa: bundle ← parcial (sai a cópia parcial do fim do bundle e o `.financiamento-panel`, que nenhuma página usa).
+- `localizacao.css` (popup do mapa, só sobre.html): bundle ← parcial.
+
+### Com efeito visual nas subpáginas (aprovado: versão da home vale nas 5)
+- `footer.css` ← footer da home (sobre, produtos, clientes, credito).
+- `mobile.css` — cards do menu passam a sumir abaixo de 480px, como na home.
+- `layout.css` — `.btn--split--sm` 0.68rem → 0.72rem (produtos.html).
+- `mobile.css` + bundle — removidas as regras de footer em `@media (max-width: 767px)` que `footer.css` redefine: no bundle elas já perdiam (footer.css vem depois), nas subpáginas venciam e o footer mobile ficava diferente. Home inalterada.
+
+---
+
 ## [2026-11-11] FIX — Seção "Feito aqui." quebrada com prefers-reduced-motion
 
 **Agente:** Claude Code

@@ -83,7 +83,7 @@
 #cursor-follower.cursor--view {
   width: 60px;
   height: 60px;
-  border-color: rgba(255, 255, 255, 0.35);
+  border-color: rgba(255, 255, 255, 0.68);
   transition:
     width 0.35s var(--ease-machado),
     height 0.35s var(--ease-machado),

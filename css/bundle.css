@@ -1,4 +1,4 @@
-﻿/* ===========================
+/* ===========================
    RESET — Modern CSS Reset
    Machado Plataformas
 =========================== */
@@ -1572,43 +1572,12 @@ body {
    FOOTER
 ───────────────────────────────────────────────────── */
 
+/* Só o que não é redefinido em footer.css. O resto do footer mobile mora lá:
+   no bundle, footer.css vem depois deste arquivo e vencia estas regras na
+   home; nas subpáginas a ordem é a inversa e o footer ficava diferente. */
 @media (max-width: 767px) {
-  .footer {
-    padding-top: var(--space-14);
-    min-height: unset;
-  }
-
-  .footer-grid {
-    gap: var(--space-10);
-    padding-bottom: var(--space-12);
-    min-height: unset;
-  }
-
-  .footer-tagline {
-    font-size: var(--text-base);
-    line-height: 1.55;
-  }
-
   .footer-cta {
     width: 100%;
-    padding-inline: var(--space-5);
-  }
-
-  .footer-col--brand {
-    max-width: none;
-  }
-
-  .footer-col--contact {
-    max-width: none;
-  }
-
-  .footer-bottom {
-    padding-top: var(--space-8);
-  }
-
-  /* Watermark: ajustado para não causar scroll horizontal */
-  .footer-headline {
-    font-size: clamp(3.5rem, 24vw, 7rem);
   }
 }
 
@@ -2601,7 +2570,6 @@ body {
   }
 }
 
-
 /* ===========================
    COMPONENTE: Financiamento
    Depende de: variables.css, layout.css
@@ -2659,62 +2627,57 @@ body {
 
 .financiamento-cta {
   display: flex;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+  align-items: center;
 }
 
-.financiamento-panel {
+/* ─── Negociação assistida block ─── */
+
+.financiamento-brief {
   position: relative;
-  display: grid;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--space-8);
+  padding: var(--space-8);
   overflow: hidden;
-  min-height: 320px;
   background-color: var(--color-menu-bg);
   border: 1px solid var(--color-border-light);
-  box-shadow: 0 24px 60px var(--color-navbar-shadow);
 }
 
-.financiamento-panel::before {
+.financiamento-brief::before {
   content: '';
   position: absolute;
   inset: 0 0 auto;
-  z-index: 3;
-  height: 3px;
+  z-index: 1;
+  height: 2px;
   background-color: var(--color-primary);
   transform-origin: left;
   animation: financiamento-panel-line var(--dur-crawl) var(--ease-premium) both;
 }
 
-.financiamento-panel__media {
-  position: absolute;
-  inset: 0;
-  margin: 0;
-}
-
-.financiamento-panel__media::after {
+.financiamento-brief::after {
   content: '';
   position: absolute;
   inset: 0;
+  pointer-events: none;
   background:
-    linear-gradient(90deg, var(--color-menu-bg) 0%, transparent 72%),
-    linear-gradient(0deg, var(--color-overlay) 0%, transparent 62%);
+    linear-gradient(90deg, var(--color-navbar-border-dark) 1px, transparent 1px),
+    linear-gradient(180deg, var(--color-navbar-border-dark) 1px, transparent 1px);
+  background-size: var(--space-16) var(--space-16);
+  opacity: 0.35;
 }
 
-.financiamento-panel__media img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.financiamento-panel__body {
+.financiamento-brief__header {
   position: relative;
-  z-index: 2;
-  display: grid;
-  align-content: end;
-  gap: var(--space-5);
-  min-height: 320px;
-  padding: var(--space-6);
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
 }
 
-.financiamento-panel__eyebrow {
+.financiamento-brief__eyebrow {
   font-family: var(--font-ui-mono);
   font-size: var(--text-xs);
   font-weight: var(--weight-medium);
@@ -2723,29 +2686,58 @@ body {
   color: var(--color-primary-light);
 }
 
-.financiamento-panel__title {
-  max-width: 22rem;
+.financiamento-brief__title {
   margin: 0;
   color: var(--color-white);
   font-family: var(--font-heading);
-  font-size: var(--text-3xl);
+  font-size: clamp(1.3rem, 2.4vw, 2rem);
   font-weight: var(--weight-medium);
-  line-height: 1.05;
+  line-height: 1.12;
+  overflow-wrap: normal;
+  word-break: normal;
+  hyphens: none;
 }
 
-.financiamento-panel__steps {
+.financiamento-brief__body {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.92);
+  font-size: var(--text-sm);
+  line-height: 1.7;
+  max-width: 38ch;
+}
+
+.financiamento-brief__steps {
+  position: relative;
+  z-index: 1;
   display: grid;
-  gap: var(--space-2);
-  padding-top: var(--space-4);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-4);
+  padding-top: var(--space-5);
   border-top: 1px solid var(--color-border-light);
 }
 
-.financiamento-panel__step {
-  color: var(--color-white);
+.financiamento-brief__step {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.financiamento-brief__step-num {
   font-family: var(--font-ui-mono);
   font-size: var(--text-xs);
   letter-spacing: 0.1em;
+  color: var(--color-primary-light);
+}
+
+.financiamento-brief__step-label {
+  font-family: var(--font-ui-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.08em;
   text-transform: uppercase;
+  color: var(--color-white);
+  line-height: 1.4;
 }
 
 .financiamento-grid {
@@ -2796,8 +2788,8 @@ body {
 .financiamento-item:focus-visible {
   background-color: var(--color-navy);
   border-color: var(--color-primary);
-  box-shadow: 0 18px 42px var(--color-navbar-shadow);
-  transform: translateY(calc(-1 * var(--space-2)));
+  box-shadow: 0 6px 24px rgba(27, 77, 132, 0.28), 0 2px 6px rgba(0, 0, 0, 0.12);
+  transform: translateY(-4px);
   /* outline removed — :focus-visible handled globally in reset.css */
 }
 
@@ -2822,7 +2814,7 @@ body {
 }
 
 .financiamento-item__icon {
-  grid-row: 1 / span 2;
+  grid-row: 1 / span 3;
   flex: 0 0 auto;
   color: var(--color-primary-light);
   transition:
@@ -2854,10 +2846,18 @@ body {
 
 .financiamento-item__hint {
   grid-column: 2;
-  color: var(--color-text-muted);
+  color: rgba(255, 255, 255, 0.62);
   font-size: var(--text-xs);
   line-height: 1.2;
   text-transform: uppercase;
+}
+
+.financiamento-item__desc {
+  grid-column: 2;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.62);
+  font-size: var(--text-xs);
+  line-height: 1.6;
 }
 
 @keyframes financiamento-panel-line {
@@ -2875,30 +2875,28 @@ body {
     grid-template-columns: minmax(0, 0.92fr) minmax(280px, 0.72fr);
   }
 
-  .financiamento-panel__body {
-    padding: var(--space-8);
-  }
-
-  .financiamento-panel__steps {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
 }
 
 @media (min-width: 1024px) {
   .financiamento-layout {
     gap: var(--space-16);
   }
+
+  .financiamento-brief {
+    padding: var(--space-10);
+  }
+}
+
+@media (max-width: 767px) {
+  .financiamento-item {
+    min-height: 0;
+    padding: var(--space-4);
+  }
 }
 
 @media (max-width: 480px) {
   .financiamento-lead {
     font-size: var(--text-base);
-  }
-
-  .financiamento-panel,
-  .financiamento-panel__body {
-    min-height: 280px;
   }
 
   .financiamento-item {
@@ -2911,7 +2909,7 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .financiamento-panel::before {
+  .financiamento-brief::before {
     animation: none;
     transform: scaleX(1);
   }
@@ -2941,7 +2939,7 @@ body {
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: var(--space-5);
+  gap: var(--space-4);
   padding: var(--space-6);
   overflow: hidden;
   color: var(--color-white);
@@ -2972,8 +2970,8 @@ body {
 .financiamento-card:focus-visible {
   background-color: var(--color-navy);
   border-color: var(--color-primary);
-  box-shadow: 0 18px 42px var(--color-navbar-shadow);
-  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(27, 77, 132, 0.3), 0 2px 8px rgba(0, 0, 0, 0.14);
+  transform: translateY(-3px);
   /* outline removed — :focus-visible handled globally in reset.css */
 }
 
@@ -3037,18 +3035,22 @@ body {
   margin: 0;
   color: var(--color-white);
   font-family: var(--font-titles);
-  font-size: clamp(1.4rem, 4vw, 2rem);
+  /* Horizon ~1.07em/char: at 1024px card content=246px, max safe size = 246/(14*1.07)=16.4px */
+  font-size: clamp(0.8rem, 1.5vw, 1rem);
   font-weight: var(--weight-bold);
-  line-height: 1.0;
+  line-height: 1.25;
   letter-spacing: 0.04em;
   text-transform: uppercase;
+  overflow-wrap: normal;
+  word-break: normal;
+  hyphens: none;
 }
 
 .financiamento-card__desc {
   max-width: 46ch;
-  color: var(--color-text-muted);
+  color: rgba(255, 255, 255, 0.72);
   font-size: var(--text-sm);
-  line-height: 1.65;
+  line-height: 1.72;
 }
 
 .financiamento-card__footer {
@@ -3056,6 +3058,9 @@ body {
   margin-top: auto;
   border-top: 1px solid var(--color-border-light);
   transition: border-color var(--dur-normal) var(--ease-premium);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .financiamento-card__cta {
@@ -3118,6 +3123,7 @@ body {
 
 @media (min-width: 1024px) {
   .financiamento-featured {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: var(--space-5);
   }
 
@@ -3126,19 +3132,49 @@ body {
   }
 
   .financiamento-standard .financiamento-item {
-    min-height: calc(var(--space-20) + var(--space-8));
+    min-height: calc(var(--space-20) + var(--space-10));
     grid-template-columns: 1fr;
-    align-content: space-between;
+    align-content: start;
     align-items: start;
+    gap: var(--space-2);
+    padding: var(--space-5) var(--space-5) var(--space-5);
   }
 
   .financiamento-standard .financiamento-item .financiamento-item__icon {
     grid-row: auto;
+    margin-bottom: var(--space-2);
+  }
+
+  .financiamento-standard .financiamento-item .financiamento-item__label {
+    font-size: var(--text-base);
+    letter-spacing: 0.06em;
   }
 
   .financiamento-standard .financiamento-item .financiamento-item__hint {
     grid-column: auto;
+    margin-top: auto;
+    padding-top: var(--space-3);
+    border-top: 1px solid var(--color-border-light);
+    color: var(--color-primary-light);
   }
+
+  .financiamento-standard .financiamento-item .financiamento-item__desc {
+    grid-column: auto;
+  }
+}
+
+/* --- Disclaimer --- */
+
+.financiamento-disclaimer {
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--color-border-light);
+  color: var(--color-text-muted);
+  font-family: var(--font-ui-mono);
+  font-size: var(--text-xs);
+  line-height: 1.65;
+  max-width: 72ch;
+  margin: 0 auto;
+  text-align: center;
 }
 
 /* --- Motion reduction for new components --- */
@@ -3157,6 +3193,55 @@ body {
 }
 
 
+/* ── Lista de condições em linhas ──
+   Substitui o grid de cards idênticos: uma linha por condição, mesma
+   estrutura para programa e pagamento direto. Reduz a varredura de
+   5 opções lado a lado para uma leitura vertical única. */
+@media (min-width: 768px) {
+  .financiamento-featured,
+  .financiamento-standard {
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+  }
+
+  .financiamento-featured .financiamento-card,
+  .financiamento-standard .financiamento-item {
+    flex-direction: row;
+    align-items: center;
+    gap: var(--space-5);
+    padding: var(--space-5) var(--space-6);
+  }
+
+  .financiamento-featured .financiamento-card__body,
+  .financiamento-standard .financiamento-item__desc {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  .financiamento-featured .financiamento-card__icon-wrap,
+  .financiamento-standard .financiamento-item__icon {
+    flex: 0 0 auto;
+  }
+
+  .financiamento-featured .financiamento-card__footer,
+  .financiamento-standard .financiamento-item__hint {
+    margin-left: auto;
+    flex: 0 0 auto;
+    border-top: 0;
+    padding-top: 0;
+    white-space: nowrap;
+  }
+}
+
+@media (min-width: 1024px) {
+  .financiamento-featured,
+  .financiamento-standard {
+    grid-template-columns: 1fr;
+  }
+  .financiamento-standard .financiamento-item {
+    grid-column: auto;
+  }
+}
 /* ===========================
    COMPONENTE: Footer
    Depende de: variables.css
@@ -4217,7 +4302,7 @@ body {
 }
 
 .maplibregl-popup-close-button {
-  color: rgba(255, 255, 255, 0.62) !important;
+  color: rgba(255, 255, 255, 0.4) !important;
   font-size: 18px !important;
   top: 2px !important;
   right: 6px !important;
@@ -6964,120 +7049,4 @@ body {
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--color-bg-light);
-}
-
-
-/* ── financiamento-brief (de css/components/financiamento.css) ──
-   Sincronizado para o bundle nao divergir do parcial. */
-/* ─── Negociação assistida block ─── */
-
-.financiamento-brief {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: var(--space-8);
-  padding: var(--space-8);
-  overflow: hidden;
-  background-color: var(--color-menu-bg);
-  border: 1px solid var(--color-border-light);
-}
-
-.financiamento-brief::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background:
-    linear-gradient(90deg, var(--color-navbar-border-dark) 1px, transparent 1px),
-    linear-gradient(180deg, var(--color-navbar-border-dark) 1px, transparent 1px);
-  background-size: var(--space-16) var(--space-16);
-  opacity: 0.35;
-}
-
-.financiamento-brief__eyebrow {
-  font-family: var(--font-ui-mono);
-  font-size: var(--text-xs);
-  font-weight: var(--weight-medium);
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--color-primary-light);
-}
-
-.financiamento-brief__body {
-  position: relative;
-  z-index: 1;
-  margin: 0;
-  color: rgba(255, 255, 255, 0.92);
-  font-size: var(--text-sm);
-  line-height: 1.7;
-  max-width: 38ch;
-}
-
-.financiamento-brief__step {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-1);
-}
-
-.financiamento-brief__step-label {
-  font-family: var(--font-ui-mono);
-  font-size: var(--text-xs);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--color-white);
-  line-height: 1.4;
-}
-
-.financiamento-item__desc {
-  grid-column: 2;
-  margin: 0;
-  color: rgba(255, 255, 255, 0.62);
-  font-size: var(--text-xs);
-  line-height: 1.6;
-}
-
-.financiamento-brief {
-    padding: var(--space-10);
-  }
-
-/* --- Disclaimer --- */
-
-.financiamento-disclaimer {
-  padding-top: var(--space-6);
-  border-top: 1px solid var(--color-border-light);
-  color: var(--color-text-muted);
-  font-family: var(--font-ui-mono);
-  font-size: var(--text-xs);
-  line-height: 1.65;
-  max-width: 72ch;
-  margin: 0 auto;
-  text-align: center;
-}
-
-@media (min-width: 1024px) {
-  .financiamento-brief {
-    padding: var(--space-10);
-    }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .financiamento-brief::before {
-    animation: none;
-    transform: scaleX(1);
-    }
-}
-
-@media (min-width: 1024px) {
-  .financiamento-standard .financiamento-item .financiamento-item__desc {
-    grid-column: auto;
-    }
-}
-
-@media (min-width: 768px) {
-  .financiamento-featured .financiamento-card__body,
-  .financiamento-standard .financiamento-item__desc {
-    flex: 1 1 auto;
-    min-width: 0;
-    }
 }

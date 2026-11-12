@@ -65,7 +65,7 @@
   border: none;
   border-bottom: 1px solid transparent;
   cursor: pointer;
-  color: rgba(255, 255, 255, 0.3);
+  color: rgba(255, 255, 255, 0.66);
   transition:
     color var(--dur-normal) var(--ease-machado),
     border-color var(--dur-normal) var(--ease-machado);

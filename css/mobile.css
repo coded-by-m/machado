@@ -33,13 +33,6 @@ body {
    NAVBAR
 ───────────────────────────────────────────────────── */
 
-@media (max-width: 767px) {
-  /* Cards empilhados no mobile criam 1400px+ de altura — ocultar abaixo de tablet */
-  .navbar-panel__cards {
-    display: none;
-  }
-}
-
 @media (max-width: 479px) {
   .navbar-inner {
     min-height: 3.75rem;
@@ -65,144 +58,10 @@ body {
     width: 0.72rem;
     height: 0.72rem;
   }
-}
 
-/* ─────────────────────────────────────────────────────
-   HERO — Prioridade máxima
-───────────────────────────────────────────────────── */
-
-@media (max-width: 767px) {
-  .hero {
-    min-height: auto;
-  }
-
-  .hero-inner {
-    min-height: auto;
-    padding-block: var(--space-6) 0;
-    gap: var(--space-8);
-  }
-
-  .hero-content {
-    align-content: start;
-    align-self: start;
-    padding-bottom: 0;
-  }
-
-  .hero-title {
-    font-size: clamp(2.2rem, 10.2vw, 3.4rem);
-    gap: 0.5rem;
-    line-height: 0.84;
-  }
-
-  .hero-subtitle,
-  .hero-kicker {
+  /* Cards no panel ocupam muito espaço em xs */
+  .navbar-panel__cards {
     display: none;
-  }
-
-  .hero-ctas {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: var(--space-3);
-    margin-top: var(--space-5);
-  }
-
-  .hero-cta-primary {
-    min-width: unset;
-    width: 100%;
-    max-width: 22rem;
-  }
-
-  .hero-cta-primary .btn__label {
-    flex: 1;
-    text-align: center;
-  }
-
-  .hero-link {
-    font-size: 1rem;
-  }
-
-  .hero-media {
-    position: relative;
-    top: auto;
-    right: auto;
-    bottom: auto;
-    width: 100%;
-    height: auto;
-    pointer-events: none;
-    transform: none;
-    z-index: 5;
-  }
-
-  .hero-stage {
-    position: relative;
-    right: auto;
-    bottom: auto;
-    width: 100%;
-    height: auto;
-    aspect-ratio: 720 / 649;
-    overflow: hidden;
-  }
-
-  .hero-stage::before {
-    background: linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 0.3) 0%,
-      transparent 15%
-    );
-    opacity: 1;
-    mix-blend-mode: normal;
-    transition: none;
-    z-index: 4;
-  }
-
-  .hero-stage:hover::before {
-    opacity: 1;
-  }
-
-  .hero-img {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    object-position: center center;
-    transform: none;
-    opacity: 1;
-  }
-
-  .hero-scroll {
-    display: none;
-  }
-}
-
-@media (max-width: 479px) {
-  .hero-title {
-    font-size: clamp(1.9rem, 9.8vw, 2.9rem);
-    gap: 0.42rem;
-  }
-
-  .hero-subtitle {
-    font-size: 0.9rem;
-  }
-
-  .hero-cta-primary,
-  .hero-ctas .btn--split {
-    max-width: none;
-    width: 100%;
-  }
-}
-
-@media (max-width: 359px) {
-  .hero-inner {
-    padding-block: var(--space-4) 0;
-  }
-
-  .hero-content {
-    padding-bottom: var(--space-6);
-  }
-
-  .hero-ctas {
-    margin-top: var(--space-3);
   }
 }
 
@@ -426,10 +285,9 @@ body {
 
 /* ─────────────────────────────────────────────────────
    PRODUTOS
-   NOTA: overrides de .produto-figure e .produto-figure
-   picture/img foram movidos para produtos.css (ao final
-   do arquivo), pois precisam vir APÓS as regras base
-   para que o cascade funcione corretamente no bundle.
+   NOTA: overrides de .produto-figure foram movidos para
+   produtos.css (ao final do arquivo), pois precisam vir
+   APÓS as regras base para o cascade correto no bundle.
 ───────────────────────────────────────────────────── */
 
 @media (max-width: 1023px) {
@@ -604,43 +462,12 @@ body {
    FOOTER
 ───────────────────────────────────────────────────── */
 
+/* Só o que não é redefinido em footer.css. O resto do footer mobile mora lá:
+   no bundle, footer.css vem depois deste arquivo e vencia estas regras na
+   home; nas subpáginas a ordem é a inversa e o footer ficava diferente. */
 @media (max-width: 767px) {
-  .footer {
-    padding-top: var(--space-12);
-    min-height: unset;
-  }
-
-  .footer-grid {
-    gap: var(--space-8);
-    padding-bottom: var(--space-8);
-    min-height: unset;
-  }
-
-  .footer-tagline {
-    font-size: var(--text-base);
-    line-height: 1.5;
-  }
-
   .footer-cta {
     width: 100%;
-    padding-inline: var(--space-4);
-  }
-
-  .footer-col--brand {
-    max-width: none;
-  }
-
-  .footer-col--contact {
-    max-width: none;
-  }
-
-  .footer-bottom {
-    padding-top: var(--space-5);
-  }
-
-  /* Watermark: ajustado para não causar scroll horizontal */
-  .footer-headline {
-    font-size: clamp(3.5rem, 24vw, 7rem);
   }
 }
 
@@ -812,5 +639,140 @@ body {
   button,
   [role="button"] {
     touch-action: manipulation;
+  }
+}
+
+/* ─────────────────────────────────────────────────────
+   HERO MOBILE — no final para vencer cascade sobre hero.css base
+───────────────────────────────────────────────────── */
+
+@media (max-width: 767px) {
+  .hero {
+    min-height: auto;
+  }
+
+  .hero-inner {
+    min-height: auto;
+    padding-block: var(--space-6) 0;
+    gap: 0;
+  }
+
+  .hero-content {
+    align-content: start;
+    align-self: start;
+    padding-bottom: 0;
+  }
+
+  .hero-title {
+    font-size: clamp(2.2rem, 10.2vw, 3.4rem);
+    gap: 0.5rem;
+    line-height: 0.84;
+  }
+
+  .hero-subtitle,
+  .hero-kicker {
+    display: none;
+  }
+
+  .hero-ctas {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-3);
+    margin-top: var(--space-5);
+  }
+
+  .hero-cta-primary {
+    min-width: unset;
+    width: 100%;
+    max-width: 22rem;
+  }
+
+  .hero-cta-primary .btn__label {
+    flex: 1;
+    text-align: center;
+  }
+
+  .hero-link {
+    font-size: 1rem;
+  }
+
+  .hero-media {
+    position: relative;
+    top: auto;
+    right: auto;
+    bottom: auto;
+    width: 100%;
+    height: auto;
+    pointer-events: none;
+    transform: none;
+    z-index: 1;
+  }
+
+  .hero-stage {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 720 / 649;
+    overflow: hidden;
+  }
+
+  .hero-stage::before {
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.3) 0%,
+      transparent 15%
+    );
+    opacity: 1;
+    mix-blend-mode: normal;
+    transition: none;
+    z-index: 4;
+  }
+
+  .hero-stage:hover::before {
+    opacity: 1;
+  }
+
+  .hero-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center center;
+    transform: none;
+    opacity: 1;
+  }
+
+  .hero-scroll {
+    display: none;
+  }
+}
+
+@media (max-width: 479px) {
+  .hero-title {
+    font-size: clamp(1.9rem, 9.8vw, 2.9rem);
+    gap: 0.42rem;
+  }
+
+  .hero-cta-primary,
+  .hero-ctas .btn--split {
+    max-width: none;
+    width: 100%;
+  }
+}
+
+@media (max-width: 359px) {
+  .hero-inner {
+    padding-block: var(--space-4) 0;
+  }
+
+  .hero-content {
+    padding-bottom: var(--space-6);
+  }
+
+  .hero-ctas {
+    margin-top: var(--space-3);
   }
 }
