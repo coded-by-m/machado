@@ -4,6 +4,15 @@
 > Formato: `[AAAA-MM-DD] Tipo — Descrição breve` seguido de detalhes.
 > Tipos: `FEAT` (novo recurso), `FIX` (correção), `STYLE` (visual/CSS), `REFACTOR`, `CHORE` (estrutura/config), `CONTENT` (textos/imagens).
 
+## [2026-11-11] STYLE — Contraste do botão de fechar do popup do mapa
+
+**Agente:** Claude Code
+
+### Alterado
+- `css/components/localizacao.css` + `css/bundle.css` — `.maplibregl-popup-close-button`: `rgba(255,255,255,0.4)` → `rgba(255,255,255,0.62)` (sobre.html).
+
+---
+
 ## [2026-11-11] CHORE — bundle.css e parciais reconciliados
 
 **Agente:** Claude Code

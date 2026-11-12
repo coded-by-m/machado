@@ -220,7 +220,7 @@
 }
 
 .maplibregl-popup-close-button {
-  color: rgba(255, 255, 255, 0.4) !important;
+  color: rgba(255, 255, 255, 0.62) !important;
   font-size: 18px !important;
   top: 2px !important;
   right: 6px !important;
